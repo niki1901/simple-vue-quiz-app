@@ -12,13 +12,13 @@
                         class="block mt-4 text-lg border border-gray-300 rounded-lg py-2 px-6"
                         :class="{'hover:bg-gray-100 cursor-pointer': selectedAns==''},
                                 {'bg-red-200' : selectedAns == key},
-                                {'bg-green-200': key==ques[idx]['ans'] && selectedAns!=''}"
+                                {'!bg-green-200': key==ques[idx]['ans'] && selectedAns!=''}"
                         v-for="option,key in ques[idx]['options']" >
                         <input 
                             type = "radio"
-                            v-bind:id = "key"
+                            :id = "key"
                             class = "hidden" 
-                            v-bind:value = "key"
+                            :value = "key"
                             v-on:change = answered($event) 
                             v-model = "selectedAns"
                             :disabled = "selectedAns != ''"
